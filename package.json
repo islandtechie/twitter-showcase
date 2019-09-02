@@ -1,0 +1,22 @@
+{
+  "name": "twitter-showcase",
+  "version": "1.0.0",
+  "description": "This is my Twitter showcase app.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/islandtechie/twitter-showcase.git"
+  },
+  "author": "Berlin Smith Jr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/islandtechie/twitter-showcase/issues"
+  },
+  "homepage": "https://github.com/islandtechie/twitter-showcase#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
