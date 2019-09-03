@@ -1,6 +1,20 @@
 import React, { Component, Fragment } from 'react'
 
 class Home extends Component {
+    state = {
+        searchText: ''
+    }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state.searchText);
+    }
+
+    onChange = e => {
+        this.setState({ searchText: e.target.value});
+      };
+
+
     render() {
         return (
             <Fragment>
@@ -20,7 +34,16 @@ class Home extends Component {
                             </div>
                             <div className="tweet_body_text">
                                 <p>Use the Search box below to search for a tweet from someone you follow! You can search by <em>@twitter_handle</em> or <em>tweet content</em>.</p>
-                                <input placeholder="@elonmusk or 'bananas" id="user-search"/>
+                                <form onSubmit={this.onSubmit}>
+                                    <input 
+                                        type="text" 
+                                        placeholder="@elonmusk or 'bananas'" 
+                                        name="user-search"
+                                        onChange={this.onChange}
+                                        value={this.state.searchText}
+                                    />
+                                    <input type="submit" name="" id="" hidden/>
+                                </form>
                             </div>
                         </div>
                     </div>

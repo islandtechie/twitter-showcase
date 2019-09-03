@@ -108,7 +108,7 @@ p > em {
   font-weight: bold;
 }
 
-.tweet_body_text > input {
+.tweet_body_text > form > input {
   width: 70%;
   height: 50px;
   margin-top: 10px;
