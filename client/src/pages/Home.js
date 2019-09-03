@@ -12,8 +12,11 @@ class Home extends Component {
 
     onChange = e => {
         this.setState({ searchText: e.target.value});
-      };
+    };
 
+    onClick = () => {
+        console.log('goo');
+    };
 
     render() {
         return (
@@ -59,7 +62,7 @@ class Home extends Component {
                             </div>
                             <div className="tweet_body_text">
                                 <p>Use the Grab-A-Tweet box below to search for a tweet from someone we follow! <em>#InspirationLaughsSelfDevelopment</em></p>
-                                <button type="button" id="random-search">Grab-A-Tweet</button>
+                                <button type="button" id="random-search" onClick={this.onClick}>Grab-A-Tweet</button>
                             </div>
                         </div>
                     </div>
