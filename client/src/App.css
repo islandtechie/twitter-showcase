@@ -46,17 +46,15 @@ nav > a:hover,
 }
 
 .content {
-  border: 1px solid black;
   height: calc(100% - 35px);
 }
 
 .logo > img {
   margin-top: 3vh;
-  width: 30vw;
+  width: 400px;
 }
 
 .search-area {
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -67,7 +65,7 @@ nav > a:hover,
 .tweet {
   display: flex;
   flex-direction: row;
-  width: 48vw;
+  width: 640px;
   text-align: left;
   border: 1px solid black;
   padding: 10px;

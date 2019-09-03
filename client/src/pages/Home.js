@@ -18,6 +18,9 @@ class Home extends Component {
         console.log('goo');
     };
 
+    componentDidMount() {
+        document.body.style.backgroundColor = "#1dcaff";
+    }
     render() {
         return (
             <Fragment>
