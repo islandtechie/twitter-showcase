@@ -7,7 +7,7 @@ class Home extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.searchText);
+        console.log(this.state.searchText);  
     }
 
     onChange = e => {
