@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 import './App.css';
 import Home from './pages/Home';
 import UserSearch from './pages/UserSearch';
+import RandomSearch from './pages/RandomSearch';
 
 class App extends Component {
     state = {
@@ -21,6 +22,7 @@ class App extends Component {
                     <div className="content">
                         <Route path="/" exact component={Home} />
                         <Route path="/user-search" exact component={UserSearch} />
+                        <Route path="/random-search" exact component={RandomSearch} />
                     </div>
                 </Router>
             </Fragment>

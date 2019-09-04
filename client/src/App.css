@@ -148,6 +148,26 @@ p > em {
   font-size: 1.8rem;
 }
 
+.top-bar > form > button {
+  width: 500px;
+  height: 45px;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.45rem;
+  font-weight: bold;
+  color: #1dcaff;
+  border: none;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.top-bar > form > button:hover {
+  background-color: #1dcaff;
+  color: #fff;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
 .search-result-area {
   display: flex;
   flex-direction: row;
@@ -160,3 +180,50 @@ p > em {
 }
 
 /*******============USER-SEARCH==============****/
+
+.tweet-search-area {
+  margin: 0 auto;
+  width: 85%;
+  height: 87vh;
+  display: flex;
+  justify-content: center;
+}
+
+.tweet-search-area > .tweeters {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.tweet-search-area > .tweets {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 2;
+}
+
+.tweet-search-area > .tweeters > .tweet {
+  width: 450px;
+}
+
+.tweet-search-area > .tweeters > .tweet:hover {
+  background-color: #1dcaff;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  width: 465px;
+}
+
+.tweet-search-area > .tweeters > .tweet > .tweet_avatar > img {
+  width: 110px;
+}
+
+.tweet-search-area > .tweeters > .tweet > .tweet__body > .tweet_body_header {
+  margin-top: 25px;
+}
+
+.tweet-search-area > .tweeters > .tweet > .tweet__body > .tweet_body_header > span {
+  display: block;
+}
