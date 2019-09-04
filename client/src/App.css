@@ -148,4 +148,15 @@ p > em {
   font-size: 1.8rem;
 }
 
+.search-result-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.search-result-area > .tweet:hover {
+  background-color: #1dcaff;
+  width: 900px;
+}
+
 /*******============USER-SEARCH==============****/
