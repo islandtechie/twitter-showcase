@@ -1,8 +1,17 @@
 const express = require('express');
 const server = express();
 const PORT = 3001;
+const axios = require('axios');
+const getToken  = require('./ApiService/AuthService');
 
-server.get('/api/tweets', (req, res) => res.send(tweets));
+const TOKEN = getToken();
+
+server.get('/api/tweets', (req, res) => {
+    res.send(tweets);
+});
+
+server.get('/api/tweeters', (req, res) => res.send(tweets));
+server.get('/api/tweeter/tweets', (req, res) => res.send(tweets));
 
 server.listen(PORT, () => console.log(`Server Now listening on port ${PORT}`));
 

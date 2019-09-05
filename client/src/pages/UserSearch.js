@@ -17,9 +17,7 @@ class UserSearch extends Component {
         console.log(this.state.searchText);
         fetch('/api/tweets')
             .then(res => res.json())
-            .then((data) => {
-                this.setState({ tweets: data });
-            })
+            .then((data) => console.log(data));
     };
 
     componentDidMount() {
