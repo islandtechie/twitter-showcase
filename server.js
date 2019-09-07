@@ -4,7 +4,13 @@ const PORT = 3001;
 const axios = require('axios');
 const getToken  = require('./ApiService/AuthService');
 
-const TOKEN = getToken();
+const SEARCH_URL = 'https://api.twitter.com/1.1/search/tweets.json'
+
+const USER_SEARCH_PARAM = {
+
+}
+
+//const TOKEN = getToken();
 
 server.get('/api/tweets', (req, res) => {
     res.send(tweets);

@@ -1,13 +1,16 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment } from 'react';
 
 class Home extends Component {
+
     state = {
-        searchText: ''
+        searchText: null
     }
 
     onSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.searchText);  
+        this.props.setSearchText(this.state.searchText);
+        this.setState({ searchText: null });
+        this.props.history.push('/user-search');
     }
 
     onChange = e => {
@@ -19,7 +22,7 @@ class Home extends Component {
     };
 
     componentDidMount() {
-        document.body.style.backgroundColor = "#1dcaff";
+        document.body.style.backgroundColor = "#1dcaff";        
     }
     render() {
         return (
@@ -46,7 +49,7 @@ class Home extends Component {
                                         placeholder="@elonmusk or 'bananas'" 
                                         name="user-search"
                                         onChange={this.onChange}
-                                        value={this.state.searchText}
+                                        //value={this.state.searchText}
                                     />
                                     <input type="submit" name="" id="" hidden/>
                                 </form>

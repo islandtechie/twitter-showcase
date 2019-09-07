@@ -4,8 +4,10 @@ import Tweet from '../components/Tweet';
 class UserSearch extends Component {
 
     state = {
+        placeholder: 'Search a Tweet',
         searchText: '',
-        tweets: []
+        tweets: [],
+        loading: false
     }
 
     onChange = e => {
@@ -14,24 +16,45 @@ class UserSearch extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.searchText);
-        fetch('/api/tweets')
-            .then(res => res.json())
-            .then((data) => console.log(data));
+        this.getTweets(this.state.searchText);
     };
 
+    loading = () => { this.setState({ loading : !this.state.loading })};
+
+    getTweets = (searchText) => {
+        fetch('/api/tweets')
+            .then((res) =>  res.json())
+            .then((data) => {
+                console.log(data);
+                this.setState({ tweets : data });
+                console.log('after', this.state.tweets);
+                this.loading();
+                return true;      
+            })
+            .catch((err) => {
+                console.log(err)
+                return false;
+            });
+    }
     componentDidMount() {
+
         document.body.style.backgroundColor = "#fff";
+        if (this.props.searchText !== null) {
+            this.setState({ placeholder : this.props.searchText });
+            //this.loading();
+        }
     }
 
     render() {
-        return (
+
+        if (this.state.loading) {
+           return (
             <Fragment>
                 <div className="top-bar">
                     <form onSubmit={this.onSubmit}>
                         <input 
                             type="text" 
-                            placeholder="Search a Tweet" 
+                            placeholder={this.state.placeholder} 
                             name="user-search"
                             onChange={this.onChange}
                             value={this.state.searchText}
@@ -40,14 +63,35 @@ class UserSearch extends Component {
                     </form>
                 </div>
                 <div className="search-result-area">
-                    {this.state.tweets.map(tweet => (
-                    <Tweet 
-                        key={tweet.id} tweet={tweet}
-                    />
-            ))}
+                    <p>Loading...</p>
                 </div>
             </Fragment>
         )
+        }else{
+            return (
+                <Fragment>
+                    <div className="top-bar">
+                        <form onSubmit={this.onSubmit}>
+                            <input 
+                                type="text" 
+                                placeholder={this.state.placeholder} 
+                                name="user-search"
+                                onChange={this.onChange}
+                                value={this.state.searchText}
+                            />
+                            <input type="submit" name="" id="" hidden/>
+                        </form>
+                    </div>
+                    <div className="search-result-area">
+                        {this.state.tweets.map(tweet => (
+                        <Tweet 
+                            key={tweet.id} tweet={tweet}
+                        />
+                ))}
+                    </div>
+                </Fragment>
+            )
+        }
     }
 }
 export default UserSearch;
