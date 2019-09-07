@@ -18,7 +18,7 @@ class Home extends Component {
     };
 
     onClick = () => {
-        console.log('goo');
+        this.props.history.push('/random-search');
     };
 
     componentDidMount() {
@@ -28,12 +28,12 @@ class Home extends Component {
         return (
             <Fragment>
                 <div className="logo">
-                    <img src="_assets/t-logo.png" alt=""/>
+                    <img src="_assets/t-logo-2.png" alt=""/>
                 </div>
                 <div className="search-area">
                     <div className="tweet">
                         <div className="tweet_avatar">
-                            <img src="_assets/t-logo.png" alt=""/>
+                            <img src="_assets/t-logo-3.png" alt=""/>
                         </div>
                         <div className="tweet__body">
                             <div className="tweet_body_header">
@@ -58,7 +58,7 @@ class Home extends Component {
                     </div>
                     <div className="tweet">
                         <div className="tweet_avatar">
-                            <img src="_assets/t-logo.png" alt=""/>
+                            <img src="_assets/t-logo-3.png" alt=""/>
                         </div>
                         <div className="tweet__body">
                             <div className="tweet_body_header">

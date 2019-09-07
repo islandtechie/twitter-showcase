@@ -5,7 +5,6 @@ const grantType = "grant_type=client_credentials";
 let URL = "https://api.twitter.com/oauth2/token";
 
 const getToken = async () => {
-    console.log('token service called!');
     return await axios.post(URL, grantType,
     {
       auth: {

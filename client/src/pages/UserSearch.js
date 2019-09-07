@@ -25,8 +25,9 @@ class UserSearch extends Component {
         fetch(`/api/tweets?q=${searchText}`)
             .then(res => res.json())
             .then((data) => {
+                console.log(data);
                 this.setState({ tweets : data });
-                this.loading();
+                if ( this.state.loading === true ) this.loading();
             });
     }
 

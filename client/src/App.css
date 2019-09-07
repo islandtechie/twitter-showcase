@@ -206,6 +206,9 @@ p > em {
 
 .tweet-search-area > .tweeters > .tweet {
   width: 450px;
+  transition-property: font-size, font-weight, position;
+  transition-duration: 500ms;
+
 }
 
 .tweet-search-area > .tweeters > .tweet:hover {
@@ -213,7 +216,6 @@ p > em {
   color: #fff;
   font-size: 2rem;
   font-weight: bold;
-  width: 465px;
 }
 
 .tweet-search-area > .tweeters > .tweet > .tweet_avatar > img {
