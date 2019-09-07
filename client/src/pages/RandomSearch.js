@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Tweet from '../components/Tweet';
+import Tweeters from '../components/Tweeters';
 
 class RandomSearch extends Component {
 
@@ -47,49 +48,38 @@ class RandomSearch extends Component {
                 date: '12 June 2019'
             }
         ],
-        tweeters: [
+        tweeters:[
             {
-                username: "mojombo",
-                handle: "@mojombo",
-                id: 1,
-                avatar_url: "https://avatars0.githubusercontent.com/u/1?v=4",
-                text: "some text",
-                date: '12 June 2019'
-      
+                id:1,
+                handle: "elonmusk",
+                username: "Elon Musk",
+                avatar: 'https://pbs.twimg.com/profile_images/1170099706686406656/JmuQKKeD_normal.jpg'
             },
             {
-                username: "defunkt",
-                handle: "@defunkt",
-                id: 2,
-                avatar_url: "https://avatars0.githubusercontent.com/u/2?v=4",
-                text: "some text",
-                date: '12 June 2019'
+                id:2,
+                handle: "elonmusk",
+                username: "Elon Musk",
+                avatar: 'https://pbs.twimg.com/profile_images/1170099706686406656/JmuQKKeD_normal.jpg'
             },
             {
-                username: "pjhyett",
-                handle: "pjhyett",
-                id: 3,
-                avatar_url: "https://avatars0.githubusercontent.com/u/3?v=4",
-                text: "some text",
-                date: '12 June 2019'
+                id:3,
+                handle: "elonmusk",
+                username: "Elon Musk",
+                avatar: 'https://pbs.twimg.com/profile_images/1170099706686406656/JmuQKKeD_normal.jpg'
             },
             {
-                username: "pjhyett",
-                handle: "pjhyett",
-                id: 4,
-                avatar_url: "https://avatars0.githubusercontent.com/u/3?v=4",
-                text: "some text",
-                date: '12 June 2019'
+                id:4,
+                handle: "elonmusk",
+                username: "Elon Musk",
+                avatar: 'https://pbs.twimg.com/profile_images/1170099706686406656/JmuQKKeD_normal.jpg'
             },
             {
-                username: "pjhyett",
-                handle: "pjhyett",
-                id: 5,
-                avatar_url: "https://avatars0.githubusercontent.com/u/3?v=4",
-                text: "some text",
-                date: '12 June 2019'
+                id:5,
+                handle: "elonmusk",
+                username: "Elon Musk",
+                avatar: 'https://pbs.twimg.com/profile_images/1170099706686406656/JmuQKKeD_normal.jpg'
             }
-        ],
+        ]
     }
 
     onSubmit = (e) => {
@@ -97,8 +87,18 @@ class RandomSearch extends Component {
         console.log('hello');
     }
 
+    getTweeters = () => {
+        fetch('/api/tweeters')
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({ tweeters : data });
+            });
+    }
+
+
     componentDidMount() {
         document.body.style.backgroundColor = "#fff";
+        //this.getTweeters();
     }
 
     render() {
@@ -111,61 +111,11 @@ class RandomSearch extends Component {
                 </div>
                 <div className="tweet-search-area">
                     <div className="tweeters">
-                        <div className="tweet">
-                            <div className="tweet_avatar">
-                                <img src="_assets/t-logo.png" alt=""/>
-                            </div>
-                            <div className="tweet__body">
-                                <div className="tweet_body_header">
-                                    <span className="tweet__username">Elon Musk</span>
-                                <span className="tweet__handle">@SearchForATweet</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tweet">
-                            <div className="tweet_avatar">
-                                <img src="_assets/t-logo.png" alt=""/>
-                            </div>
-                            <div className="tweet__body">
-                                <div className="tweet_body_header">
-                                    <span className="tweet__username">Elon Musk</span>
-                                <span className="tweet__handle">@SearchForATweet</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tweet">
-                            <div className="tweet_avatar">
-                                <img src="_assets/t-logo.png" alt=""/>
-                            </div>
-                            <div className="tweet__body">
-                                <div className="tweet_body_header">
-                                    <span className="tweet__username">Elon Musk</span>
-                                <span className="tweet__handle">@SearchForATweet</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tweet">
-                            <div className="tweet_avatar">
-                                <img src="_assets/t-logo.png" alt=""/>
-                            </div>
-                            <div className="tweet__body">
-                                <div className="tweet_body_header">
-                                    <span className="tweet__username">Elon Musk</span>
-                                <span className="tweet__handle">@SearchForATweet</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tweet">
-                            <div className="tweet_avatar">
-                                <img src="_assets/t-logo.png" alt=""/>
-                            </div>
-                            <div className="tweet__body">
-                                <div className="tweet_body_header">
-                                    <span className="tweet__username">Elon Musk</span>
-                                <span className="tweet__handle">@SearchForATweet</span>
-                                </div>
-                            </div>
-                        </div>
+                    {this.state.tweeters.map(tweeter => (
+                        <Tweeters
+                            key={tweeter.id} tweet={tweeter}
+                        />
+                    ))}
                         
                     </div>
                     <div className="tweets">
